@@ -10,6 +10,9 @@
   <body>
     <div class="weather-app">
       <header>
+        <button id="toggle-dark-mode" class="dark-mode-button">
+          🌙 Dark Mode
+        </button>
         <form id="search-form">
           <input
             type="search"
@@ -27,13 +30,14 @@
           <div>
             <h1 id="current-city">Paris</h1>
             <p class="current-details">
-              <span id="current-date"></span>, clear sky<br />
+              <span id="current-date"></span>,
+              <span id="description">clear sky</span><br />
               Humidity: <strong id="humidity">--%</strong>, Wind:
               <strong id="wind">-- km/h</strong>
             </p>
           </div>
           <div class="current-temperature">
-            <span class="current-temperature-icon">🌤️</span>
+            <img id="icon" src="" alt="Weather icon" class="weather-icon" />
             <span class="current-temperature-value">--</span>
             <span class="current-temperature-unit">°C</span>
           </div>
