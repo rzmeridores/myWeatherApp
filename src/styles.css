@@ -187,11 +187,20 @@ a:hover {
   height: auto;
 }
 
-.weather-icon {
-  margin-right: 6px;
-  color: #555;
+.icon-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0;
 }
 
+.weather-icon {
+  display: inline-block;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  color: #555;
+}
 /* Dark Mode Styles */
 body.dark-mode {
   background: radial-gradient(circle, #5f6d99 0%, #7a85bb 50%, #9a9be8 100%);
