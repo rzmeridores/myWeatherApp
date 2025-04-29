@@ -127,6 +127,37 @@ a:hover {
   font-size: 0.9rem;
 }
 
+/*subgrid styling*/
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 10px;
+  background: #f0f4f8;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.forecast-day {
+  text-align: center;
+}
+
+.forecast-day img {
+  width: 60px;
+  height: auto;
+}
+
+.forecast-details p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.weather-icon {
+  margin-right: 6px;
+  color: #555;
+}
+
 /* Dark Mode Styles */
 body.dark-mode {
   font-family: "Poppins", sans-serif;
