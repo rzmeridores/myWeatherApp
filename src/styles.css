@@ -9,15 +9,15 @@ body {
 }
 
 .weather-app {
-  max-width: 100%;
-  width: 600px;
+  width: 100%;
+  max-width: 700px;
   margin: 30px auto;
   padding: 20px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  transition: background 0.4s ease, color 0.4s ease;
   box-sizing: border-box;
+  overflow: visible; /* Make sure content isn't clipped */
 }
 
 header {
@@ -165,14 +165,11 @@ a:hover {
 }
 
 /*subgrid styling*/
-@media (max-width: 768px) {
-  .weather-app {
-    width: 90%;
-    padding: 15px;
-  }
 
-  .forecast-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
   margin-top: 20px;
   box-sizing: border-box;
 }
