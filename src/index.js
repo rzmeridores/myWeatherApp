@@ -54,21 +54,26 @@ function displayForecast(response) {
     forecastElement.classList.add("forecast-item");
 
     forecastElement.innerHTML = `
-  <div class="forecast-grid">
-    <div class="forecast-day">
-      <h3>${formatDate(new Date(day.time * 1000)).split(" ")[0]}</h3>
-      <img src="${day.condition.icon_url}" alt="${day.condition.description}" />
-      <p>${day.condition.description}</p>
+    <div class="forecast-grid">
+      <div class="forecast-day">
+        <h3>${formatDate(new Date(day.time * 1000)).split(" ")[0]}</h3>
+        <img src="${day.condition.icon_url}" alt="${
+      day.condition.description
+    }" />
+        <p>${day.condition.description}</p>
+      </div>
+      <div class="forecast-details">
+        <p><strong>High:</strong> ${Math.round(day.temperature.maximum)}°C</p>
+        <p><strong>Low:</strong> ${Math.round(day.temperature.minimum)}°C</p>
+        <p><i class="fa-solid fa-wind weather-icon"></i>${Math.round(
+          day.wind.speed
+        )} km/h</p>
+        <p><i class="fa-solid fa-droplet weather-icon"></i>${
+          day.temperature.humidity
+        }%</p>
+      </div>
     </div>
-    <div class="forecast-details">
-      <p><strong>High:</strong> ${Math.round(day.temperature.maximum)}°C</p>
-      <p><strong>Low:</strong> ${Math.round(day.temperature.minimum)}°C</p>
-      <p><i class="fa-solid fa-wind weather-icon"></i>${Math.round(day.wind.speed)} km/h</p>
-      <p><i class="fa-solid fa-droplet weather-icon"></i>${day.temperature.humidity}%</p>
-    </div>
-  </div>
-`;
-
+  `;
 
     forecastContainer.appendChild(forecastElement);
   });
