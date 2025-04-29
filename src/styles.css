@@ -1,6 +1,6 @@
 body {
-  font-family: "Roboto", sans-serif;
-  background: #f9f7fe;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle, #a7b6ff 0%, #b7c7ff 60%, #d0d8ff 100%);
   color: #333;
   margin: 0;
   padding: 0;
@@ -129,8 +129,12 @@ a:hover {
 
 /* Dark Mode Styles */
 body.dark-mode {
-  background-color: #1e1e2f;
-  color: #f0f0f0;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle, #5f6d99 0%, #7a85bb 50%, #9a9be8 100%);
+  color: #f0f0f0; /* Lighter text for dark mode */
+  margin: 0;
+  padding: 0;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 body.dark-mode .weather-app {
