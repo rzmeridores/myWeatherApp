@@ -1,3 +1,4 @@
+/* Base styling */
 body {
   font-family: "Poppins", sans-serif;
   background: radial-gradient(circle, #a7b6ff 0%, #b7c7ff 60%, #d0d8ff 100%);
@@ -24,6 +25,20 @@ header {
   align-items: flex-start;
 }
 
+/* Typography Enhancements */
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.current-details,
+.forecast-item p {
+  font-weight: 300;
+  line-height: 1.4;
+}
+
 .search-input {
   width: 65%;
   padding: 10px;
@@ -43,13 +58,23 @@ header {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
+/* Improved dark mode button */
 .dark-mode-button {
   background: none;
   border: none;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   margin-bottom: 10px;
   color: #666;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.dark-mode-button:hover {
+  transform: scale(1.05);
+  color: #333;
+}
+body.dark-mode .dark-mode-button:hover {
+  color: #fff;
 }
 
 .current-weather {
@@ -65,10 +90,15 @@ header {
   align-items: center;
 }
 
+/* Enlarged and animated weather icon */
 .weather-icon {
-  width: 64px;
-  height: 64px;
-  margin-right: 10px;
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+.weather-icon:hover {
+  transform: scale(1.1);
 }
 
 footer {
@@ -111,10 +141,15 @@ a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: background-color 0.3s ease;
 }
+
 .forecast-item img {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   margin: 5px 0;
+  transition: transform 0.3s ease;
+}
+.forecast-item img:hover {
+  transform: scale(1.1);
 }
 
 .forecast-item h3 {
@@ -129,12 +164,8 @@ a:hover {
 
 /* Dark Mode Styles */
 body.dark-mode {
-  font-family: "Poppins", sans-serif;
   background: radial-gradient(circle, #5f6d99 0%, #7a85bb 50%, #9a9be8 100%);
-  color: #f0f0f0; /* Lighter text for dark mode */
-  margin: 0;
-  padding: 0;
-  transition: background 0.4s ease, color 0.4s ease;
+  color: #f0f0f0;
 }
 
 body.dark-mode .weather-app {
@@ -156,15 +187,11 @@ body.dark-mode footer {
   color: #ccc;
 }
 
-body.dark-mode .dark-mode-button {
-  color: #f0f0f0;
-}
-
 body.dark-mode .forecast-item {
   background-color: #3a3a4f;
 }
 
-/* Loader and skeleton */
+/* Loader */
 .loader {
   text-align: center;
   padding: 20px;
@@ -172,12 +199,11 @@ body.dark-mode .forecast-item {
   color: #888;
 }
 
-/* Hide elements before they load */
+/* Visibility & Transitions */
 .hidden {
   display: none;
 }
 
-/* Smooth reveal */
 .forecast-container,
 .current-weather,
 #forecast {
@@ -189,4 +215,17 @@ body.dark-mode .forecast-item {
 .current-weather.visible,
 #forecast.visible {
   opacity: 1;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
