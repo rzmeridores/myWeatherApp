@@ -1,8 +1,7 @@
-/* General Styles */
 body {
   font-family: "Roboto", sans-serif;
-  background: #f0f0f5;
-  color: #222;
+  background: #f9f7fe;
+  color: #333;
   margin: 0;
   padding: 0;
   transition: background 0.4s ease, color 0.4s ease;
@@ -12,24 +11,25 @@ body {
   max-width: 600px;
   margin: 30px auto;
   padding: 20px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: background 0.4s ease;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 header {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .search-input {
   width: 65%;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fdfdfd;
-  color: #222;
-  transition: background 0.4s ease, color 0.4s ease, border 0.4s ease;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 .search-button {
@@ -37,14 +37,19 @@ header {
   border: none;
   background: #6c63ff;
   color: white;
-  border-radius: 6px;
+  border-radius: 4px;
   margin-left: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-.search-button:hover {
-  background: #554dff;
+.dark-mode-button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  color: #666;
 }
 
 .current-weather {
@@ -58,14 +63,12 @@ header {
   font-weight: bold;
   display: flex;
   align-items: center;
-  transition: color 0.4s ease;
 }
 
 .weather-icon {
   width: 64px;
   height: 64px;
   margin-right: 10px;
-  transition: filter 0.4s ease;
 }
 
 footer {
@@ -73,49 +76,76 @@ footer {
   font-size: 12px;
   text-align: center;
   color: #777;
-  transition: color 0.4s ease;
 }
 
-.dark-mode-button {
-  background: none;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  color: #666;
-  transition: color 0.4s ease;
-}
-/* Default (Light Mode) Links */
 a {
   color: #6c63ff;
   text-decoration: none;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #4444aa;
 }
 
-a:hover {
-  color: #554dff;
-  text-decoration: underline;
+/* Forecast styles */
+#forecast {
+  margin-top: 20px;
+}
+
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+  padding: 10px 0;
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
+
+.forecast-item {
+  background-color: #f0f0f5;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+}
+.forecast-item img {
+  width: 48px;
+  height: 48px;
+  margin: 5px 0;
+}
+
+.forecast-item h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.forecast-item p {
+  margin: 4px 0;
+  font-size: 0.9rem;
 }
 
 /* Dark Mode Styles */
 body.dark-mode {
-  background-color: #1c1c28;
-  color: #e0e0e0;
+  background-color: #1e1e2f;
+  color: #f0f0f0;
 }
 
 body.dark-mode .weather-app {
-  background-color: #29293d;
+  background-color: #2e2e42;
 }
 
 body.dark-mode .search-input {
-  background-color: #33344d;
-  color: #f5f5f5;
+  background-color: #444;
+  color: white;
   border: 1px solid #666;
 }
 
 body.dark-mode .search-button {
-  background-color: #9ca3f5;
-  color: #1c1c28;
+  background-color: #aaa;
+  color: #000;
 }
 
 body.dark-mode footer {
@@ -123,18 +153,36 @@ body.dark-mode footer {
 }
 
 body.dark-mode .dark-mode-button {
-  color: #e0e0e0;
+  color: #f0f0f0;
 }
 
-body.dark-mode .weather-icon {
-  filter: brightness(0.9);
+body.dark-mode .forecast-item {
+  background-color: #3a3a4f;
 }
 
-body.dark-mode a {
-  color: #b3b8ff;
+/* Loader and skeleton */
+.loader {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #888;
 }
 
-body.dark-mode a:hover {
-  color: #ffffff;
-  text-decoration: underline;
+/* Hide elements before they load */
+.hidden {
+  display: none;
+}
+
+/* Smooth reveal */
+.forecast-container,
+.current-weather,
+#forecast {
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
+
+.forecast-container.loaded,
+.current-weather.visible,
+#forecast.visible {
+  opacity: 1;
 }

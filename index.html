@@ -6,6 +6,10 @@
     <title>My Weather App</title>
     <link rel="stylesheet" href="src/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="weather-app">
@@ -26,12 +30,14 @@
       </header>
 
       <main>
-        <div class="current-weather">
+        <div id="loader" class="loader">Loading weather...</div>
+
+        <div class="current-weather hidden">
           <div>
-            <h1 id="current-city">Paris</h1>
+            <h1 id="current-city">--</h1>
             <p class="current-details">
-              <span id="current-date"></span>,
-              <span id="description">clear sky</span><br />
+              <span id="current-date"></span><br />
+              <span id="description">--</span><br />
               Humidity: <strong id="humidity">--%</strong>, Wind:
               <strong id="wind">-- km/h</strong>
             </p>
@@ -42,16 +48,21 @@
             <span class="current-temperature-unit">°C</span>
           </div>
         </div>
+
+        <section id="forecast" class="hidden">
+          <h2>5-Day Forecast</h2>
+          <div class="forecast-container"></div>
+        </section>
       </main>
 
       <footer>
         <p>
-          This project was coded by
+          Project by
           <a href="https://github.com/rzmeridores" target="_blank"
-            >Ranamae Meridores </a
-          >, is
+            >Ranamae Meridores</a
+          >, open-sourced on
           <a href="https://github.com/rzmeridores/myWeatherApp" target="_blank"
-            >open-sourced on GitHub</a
+            >GitHub</a
           >, and
           <a href="https://rm-weatherapp.netlify.app/" target="_blank"
             >hosted on Netlify</a
