@@ -95,4 +95,5 @@ body.dark-mode .dark-mode-button:hover {
 /* Enlarged and animated weather icon */
 .weather-icon {
   width: 80px;
-  height: 80px
+  height: 80px;
+}
