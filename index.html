@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Weather App</title>
-
-    <!-- Styles -->
     <link rel="stylesheet" href="src/styles.css" />
-
-    <!-- Fonts -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -17,47 +14,33 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
-
-    <!-- Axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
-
   <body>
     <div class="weather-app">
       <header>
-        <!-- Dark mode toggle -->
-        <button
-          id="toggle-dark-mode"
-          class="dark-mode-button"
-          aria-label="Toggle dark mode"
-        >
+        <button id="toggle-dark-mode" class="dark-mode-button">
           🌙 Dark Mode
         </button>
-
-        <!-- Search Form -->
-        <form id="search-form" aria-label="City search form">
+        <form id="search-form">
           <input
             type="search"
-            id="search-input"
-            class="search-input"
             placeholder="Enter a city..."
             required
-            aria-label="Enter city name"
+            id="search-input"
+            class="search-input"
           />
           <input type="submit" value="Search" class="search-button" />
         </form>
       </header>
 
       <main>
-        <!-- Loading placeholder -->
         <div id="loader" class="loader">Loading weather...</div>
 
-        <!-- Current weather section -->
-        <section class="current-weather hidden" aria-live="polite">
+        <div class="current-weather hidden">
           <div>
             <h1 id="current-city">--</h1>
             <p class="current-details">
-              <span id="current-date">--</span><br />
+              <span id="current-date"></span><br />
               <span id="description">--</span><br />
               Humidity: <strong id="humidity">--%</strong>, Wind:
               <strong id="wind">-- km/h</strong>
@@ -68,15 +51,10 @@
             <span class="current-temperature-value">--</span>
             <span class="current-temperature-unit">°C</span>
           </div>
-        </section>
+        </div>
 
-        <!-- Forecast section -->
-        <section
-          id="forecast"
-          class="hidden"
-          aria-labelledby="forecast-heading"
-        >
-          <h2 id="forecast-heading">5-Day Forecast</h2>
+        <section id="forecast" class="hidden">
+          <h2>5-Day Forecast</h2>
           <div class="forecast-container"></div>
         </section>
       </main>
@@ -84,32 +62,19 @@
       <footer>
         <p>
           Project by
-          <a
-            href="https://github.com/rzmeridores"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ranamae Meridores </a
+          <a href="https://github.com/rzmeridores" target="_blank"
+            >Ranamae Meridores</a
           >, open-sourced on
-          <a
-            href="https://github.com/rzmeridores/myWeatherApp"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub </a
+          <a href="https://github.com/rzmeridores/myWeatherApp" target="_blank"
+            >GitHub</a
           >, and
-          <a
-            href="https://rm-weatherapp.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            hosted on Netlify </a
+          <a href="https://rm-weatherapp.netlify.app/" target="_blank"
+            >hosted on Netlify</a
           >.
         </p>
       </footer>
     </div>
 
-    <!-- Main Script -->
     <script src="src/index.js"></script>
   </body>
 </html>
