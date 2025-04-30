@@ -18,9 +18,12 @@
   <body>
     <div class="weather-app">
       <header>
-        <button id="toggle-dark-mode" class="dark-mode-button">
-          🌙 Dark Mode
-        </button>
+        <div class="dark-mode-toggle-wrapper">
+          <button id="toggle-dark-mode" class="dark-mode-button">
+            🌙 Dark Mode
+          </button>
+        </div>
+
         <form id="search-form">
           <input
             type="search"
@@ -41,9 +44,9 @@
             <h1 id="current-city">--</h1>
             <p class="current-details">
               <span id="current-date"></span><br />
-              <span id="description">--</span><br />
-              Humidity: <strong id="humidity">--%</strong>, Wind:
-              <strong id="wind">-- km/h</strong>
+              <span id="description">--</span><br /><br />
+              💨 Wind: <strong id="wind">-- km/h</strong>, 💧 Humidity:
+              <strong id="humidity">--%</strong>
             </p>
           </div>
           <div class="current-temperature">
@@ -73,6 +76,8 @@
           >.
         </p>
       </footer>
+
+      <div id="error-message" class="hidden error-message"></div>
     </div>
 
     <script src="src/index.js"></script>

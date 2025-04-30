@@ -88,8 +88,18 @@ function searchCity(city) {
   const currentApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   const forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
 
-  axios.get(currentApiUrl).then(displayWeather);
-  axios.get(forecastApiUrl).then(displayForecast);
+  document.querySelector("#error-message").classList.add("hidden");
+
+  axios
+    .get(currentApiUrl)
+    .then((response) => {
+      displayWeather(response);
+      return axios.get(forecastApiUrl);
+    })
+    .then(displayForecast)
+    .catch(() => {
+      showError("City not found. Please try again.");
+    });
 }
 
 function handleSearch(event) {
@@ -121,3 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", toggleDarkMode);
   searchCity("Brisbane");
 });
+
+function showError(message) {
+  const errorElement = document.querySelector("#error-message");
+  errorElement.textContent = message;
+  errorElement.classList.remove("hidden");
+  document.querySelector("#loader").style.display = "none";
+  document.querySelector(".current-weather").classList.add("hidden");
+  document.querySelector("#forecast").classList.add("hidden");
+}
